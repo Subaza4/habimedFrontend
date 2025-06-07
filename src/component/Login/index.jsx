@@ -1,18 +1,42 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './index.css';
 import {FaUser, FaLock} from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+
+    const login = (e) => {
+        e.preventDefault(); // Prevenir el comportamiento por defecto del formulario
+        console.log('Username:', username);
+        console.log('Password:', password);
+        if(username === 'test' && password === '123'){
+            navigate('/Persona');
+        }
+    }
+
     return (
         <div className="wrapper">
-            <form action="">
+            <form action="" onSubmit={login}>
                 <h1>Login</h1>
                 <div className='input-box'>
-                    <input type="text" placeholder='Username' required/>
+                    <input type="text"
+                           placeholder='Username'
+                           value={username}
+                           required
+                           onChange={(e) => setUsername(e.target.value)}
+                    />
                     <FaUser className='icon'/>
                 </div>
                 <div className='input-box'>
-                    <input type="password" placeholder='Password' required/>
+                    <input type="password"
+                           placeholder='Password'
+                           required
+                           value={password}
+                           onChange={(e) => setPassword(e.target.value)}
+                    />
                     <FaLock className='icon'/>
                 </div>
 
