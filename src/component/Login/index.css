@@ -1,3 +1,13 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('../assets/imagenes/login-background.jpg')
+    no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
 
 .wrapper {
     width: 420px;
@@ -26,7 +36,7 @@
     width: 100%;
     height: 100%;
     background: transparent;
-    border: 2px solid (255,255,255,.2);
+    border: 2px solid rgba(255,255,255,0.2);
     outline: none;
     border-radius: 40px;
     font-size: 16px;
@@ -95,7 +105,7 @@
     font-weight: 600;
 }
 
-.register-link p a:hove {
+.register-link p a:hover {
     text-decoration: underline;
 
 }
